@@ -2,10 +2,11 @@
 
 import Link from 'next/link';
 import { FileText, UploadCloud, Sparkles } from 'lucide-react';
+import ChatSupport from '@/components/ChatSupport'; // 👈 Import it
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center p-8 sm:p-20 bg-white dark:bg-black text-black dark:text-white">
+    <div className="min-h-screen flex flex-col items-center justify-center p-8 sm:p-20 bg-white dark:bg-black text-black dark:text-white relative">
       <div className="text-center mb-10">
         <h1 className="text-3xl font-bold">Build Your Resume</h1>
         <p className="text-gray-500 dark:text-gray-400 mt-2">
@@ -18,6 +19,9 @@ export default function Home() {
         <OptionCard title="Create from Existing Resume" href="/upload" />
         <OptionCard title="Create Using AI" href="/ai" />
       </main>
+
+      {/* 👇 Chat Icon Appears at Page Bottom Right */}
+      <ChatSupport />
     </div>
   );
 }
