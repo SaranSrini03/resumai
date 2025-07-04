@@ -27,7 +27,8 @@ export default function AIPage() {
     setResponse("");
 
     try {
-      const res = await fetch(`https://text.pollinations.ai/${encodeURIComponent(prompt)}`);
+      const res = await fetch(`${process.env.NEXT_PUBLIC_POLLINATIONS_API}/${encodeURIComponent(prompt)}`);
+
       if (!res.ok) throw new Error(`API returned status ${res.status}`);
       const rawText = await res.text();
       const cleaned = cleanResponse(rawText);
