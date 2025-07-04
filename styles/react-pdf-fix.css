@@ -1,0 +1,10 @@
+.react-pdf__Page__canvas {
+  max-width: 100%;
+  height: auto !important;
+}
+
+.react-pdf__Document {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
