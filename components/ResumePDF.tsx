@@ -22,7 +22,42 @@ const styles = StyleSheet.create({
   bullet: { marginLeft: 10 },
 });
 
-export default function ResumePDF({ name, title, email, linkedin, location, phone, summary, experience, skills, education }: any) {
+type ResumeData = {
+  name: string;
+  title: string;
+  email: string;
+  linkedin: string;
+  location: string;
+  phone: string;
+  summary: string;
+  experience: {
+    role: string;
+    company: string;
+    location: string;
+    start: string;
+    end: string;
+    bullets: string[];
+  }[];
+  skills: string[];
+  education: {
+    school: string;
+    degree: string;
+    date: string;
+  };
+};
+
+export default function ResumePDF({
+  name,
+  title,
+  email,
+  linkedin,
+  location,
+  phone,
+  summary,
+  experience,
+  skills,
+  education,
+}: ResumeData) {
   return (
     <Document>
       <Page size="A4" style={styles.page}>
@@ -37,12 +72,12 @@ export default function ResumePDF({ name, title, email, linkedin, location, phon
         </View>
 
         <Text style={styles.heading}>Work Experience</Text>
-        {experience.map((exp: any, i: number) => (
+        {experience.map((exp, i) => (
           <View key={i} style={styles.section}>
             <Text>
               {exp.role} | {exp.company} | {exp.location} ({exp.start} - {exp.end})
             </Text>
-            {exp.bullets.map((point: string, j: number) => (
+            {exp.bullets.map((point, j) => (
               <Text key={j} style={styles.bullet}>• {point}</Text>
             ))}
           </View>

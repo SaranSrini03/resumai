@@ -32,9 +32,10 @@ export default function AIPage() {
       const rawText = await res.text();
       const cleaned = cleanResponse(rawText);
       setResponse(cleaned);
-    } catch (err) {
+    } catch {
       setResponse("Error fetching from Pollinations AI.");
-    } finally {
+    }
+    finally {
       setLoading(false);
     }
   }
@@ -43,12 +44,11 @@ export default function AIPage() {
     <div className="flex min-h-screen">
       {/* Left: Prompt input */}
       <div className="w-1/2 p-6 border-r space-y-4">
-        {/* <h1 className="text-2xl font-bold">Ask AI</h1> */}
         <h1 className="text-2xl font-bold">Create Your Resume with AI</h1>
         <p className="text-sm text-gray-600">
           ✨ Tip: Be specific! Try something like: <br />
           <span className="italic text-gray-700">
-            "Create a resume for a frontend developer named [your name] with 2 years of experience in React, JavaScript, Tailwind, and Git."
+            {"Create a resume for a frontend developer named [your name] with 2 years of experience in React, JavaScript, Tailwind, and Git."}
           </span>
         </p>
 

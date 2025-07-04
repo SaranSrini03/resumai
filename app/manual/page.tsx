@@ -14,7 +14,7 @@ export default function ManualPage() {
   const [summary, setSummary] = useState(
     'Experienced Technical Writer with a strong background in creating internal guides, managing web content and implementing data-driven decisions for optimized web experiences.'
   );
-  const [experience, setExperience] = useState([
+  const [experience] = useState([
     {
       role: 'Technical Writer',
       company: 'Joby Aviation',
